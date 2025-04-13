@@ -1,12 +1,7 @@
 import sys
 input = sys.stdin.readline
 N, K = map(int, input().split())
-A, B, C, D = map(int, input().split())
-
-a = B*C*D
-b = A*C*D
-c = A*B*D
-d = A*B*C
+a, b, c, d = map(int, input().split())
 
 cardA = []
 cardB = []
@@ -36,46 +31,38 @@ for i in range(K):
     maxCard = "?"
     cardValue = 0
     if cardA:
-        if cardA[-1]*a > maxValue:
-            maxValue = cardA[-1]*a
+        if cardA[-1]*b*c*d > maxValue:
+            maxValue = cardA[-1]*b*c*d
             maxCard = "A"
             cardValue = cardA[-1]
     if cardB:
-        if cardB[-1]*b > maxValue:
-            maxValue = cardB[-1]*b
+        if cardB[-1]*a*c*d > maxValue:
+            maxValue = cardB[-1]*a*c*d
             maxCard = "B"
             cardValue = cardB[-1]
     if cardC:
-        if cardC[-1]*c > maxValue:
-            maxValue = cardC[-1]*c
+        if cardC[-1]*a*b*d > maxValue:
+            maxValue = cardC[-1]*a*b*d
             maxCard = "C"
             cardValue = cardC[-1]
     if cardD:
-        if cardD[-1]*d > maxValue:
-            maxValue = cardD[-1]*d
+        if cardD[-1]*a*b*c > maxValue:
+            maxValue = cardD[-1]*a*b*c
             maxCard = "D"
             cardValue = cardD[-1]
 
     if maxCard == "A":
         cardA.pop()
-        b += a
-        c += a
-        d += a
+        a += cardValue
     elif maxCard == "B":
         cardB.pop()
-        a += b
-        c += b
-        d += b
+        b += cardValue
     elif maxCard == "C":
         cardC.pop()
-        a += c
-        b += c  
-        d += c
+        c += cardValue
     elif maxCard == "D":
         cardD.pop()
-        a += d  
-        b += d
-        c += d
+        d += cardValue
 
     cardUse.append(f"{maxCard} {cardValue}")
 
