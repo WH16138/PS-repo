@@ -1,0 +1,1 @@
+print("".join(map(lambda x:str(x),sorted([int(x) for x in input()], reverse = True))))
