@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(100000)
 V,E = map(int,input().split())
 
 par = list(range(V+1))
