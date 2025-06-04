@@ -1,0 +1,1 @@
+for i in range(3):print("DCBAE"[sum(list(map(int,input().split())))])
