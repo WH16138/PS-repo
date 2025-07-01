@@ -1,0 +1,1 @@
+print(sum([int('1'*int(i)) for i in input().split()]))
