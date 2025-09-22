@@ -8,7 +8,7 @@ def sieve_of_eratosthenes(n):
         p += 1
     return [p for p in range(2, n+1) if prime[p]]
 
-primes = sieve_of_eratosthenes(5000000)
+primes = sieve_of_eratosthenes(int(5000000**0.5))
 for num in map(int, open(0).read().split()[1:]):
     factors = []
     for prime in primes:
