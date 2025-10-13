@@ -99,9 +99,9 @@ N = int(input())
 start_x, start_y = map(int, input().split())
 
 flag = False
-for trial in range(3):
+for trial in range(5):
     random.shuffle(moves)
-    path = sol(N,start_x-1,start_y-1, 5)
+    path = sol(N,start_x-1,start_y-1, 10)
     if path:
         flag = True
         print("\n".join(map(lambda a: f"{a[0]+1} {a[1]+1}", path)))
